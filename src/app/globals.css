@@ -1,21 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* AirOps brand palette */
-  --color-ao-green: #00ff64;
-  --color-ao-green-hover: #00cc50;
-  --color-ao-green-muted: #00ff6422;
-  --color-ao-dark: #01200d;
-  --color-ao-dark-2: #002910;
-  --color-ao-dark-3: #0a1f12;
-  --color-ao-surface: #0d2818;
-  --color-ao-surface-2: #132e1e;
-  --color-ao-border: rgba(255, 255, 255, 0.1);
-  --color-ao-border-light: rgba(0, 255, 100, 0.15);
-  --color-ao-text: #ffffff;
-  --color-ao-text-secondary: #a3b8ab;
-  --color-ao-text-muted: #6b8272;
-  --color-ao-blue: #4d65ff;
+  --color-aog: #00ff64;
+  --color-aoghover: #00cc50;
+  --color-aodark: #0c0c20;
+  --color-aosurf: #161630;
+  --color-aosurf2: #1e1e3a;
+  --color-aotext: #ffffff;
+  --color-aomuted: #9b9bb5;
+  --color-aodim: #64647e;
   --font-display: "Merriweather", "Georgia", serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
@@ -31,32 +24,19 @@ html {
 }
 
 body {
-  background-color: var(--color-ao-dark);
-  color: var(--color-ao-text);
+  background-color: var(--color-aodark);
+  color: var(--color-aotext);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+/* Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--color-aodark); }
+::-webkit-scrollbar-thumb { background: var(--color-aosurf2); border-radius: 4px; }
 
-::-webkit-scrollbar-track {
-  background: var(--color-ao-dark);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--color-ao-surface-2);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-ao-text-muted);
-}
-
-/* Slider styling */
+/* Slider */
 input[type="range"] {
   -webkit-appearance: none;
   appearance: none;
@@ -66,83 +46,42 @@ input[type="range"] {
   background: linear-gradient(to right, #00ff64, #4d65ff);
   outline: none;
 }
-
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 22px;
-  height: 22px;
+  width: 22px; height: 22px;
   border-radius: 50%;
   background: #00ff64;
   cursor: pointer;
-  box-shadow: 0 0 12px rgba(0, 255, 100, 0.5);
-  transition: box-shadow 0.2s ease;
+  box-shadow: 0 0 12px rgba(0,255,100,0.5);
 }
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  box-shadow: 0 0 24px rgba(0, 255, 100, 0.8);
-}
-
 input[type="range"]::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
+  width: 22px; height: 22px;
   border-radius: 50%;
   background: #00ff64;
   cursor: pointer;
   border: none;
-  box-shadow: 0 0 12px rgba(0, 255, 100, 0.5);
+  box-shadow: 0 0 12px rgba(0,255,100,0.5);
 }
-
-/* Number input arrows */
 input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  opacity: 0.5;
-}
+input[type="number"]::-webkit-outer-spin-button { opacity: 0.5; }
 
-/* Glow animation */
+/* Animations */
 @keyframes glow-pulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 255, 100, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 40px rgba(0, 255, 100, 0.25);
-  }
+  0%, 100% { box-shadow: 0 0 20px rgba(0,255,100,0.1); }
+  50% { box-shadow: 0 0 40px rgba(0,255,100,0.25); }
 }
-
 @keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes count-up {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
-
-.animate-glow {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
-}
-
-.animate-count-up {
-  animation: count-up 0.4s ease-out forwards;
-}
-
+.animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
+.animate-fade-in-up { animation: fade-in-up 0.5s ease-out forwards; }
+.animate-count-up { animation: count-up 0.4s ease-out forwards; }
 .stagger-1 { animation-delay: 0.1s; }
 .stagger-2 { animation-delay: 0.2s; }
 .stagger-3 { animation-delay: 0.3s; }
